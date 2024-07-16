@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Notes || Rajesh Kannan M</title>
+    <!-- Link to Google Fonts for custom font style -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    <style>
+        /* CSS styles for the body, pre, header, dropdown, footer, and Batman-themed colors */
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1c1c1c;
+            padding: 10px 20px;
+            color: #fdd835;
+            border-bottom: 2px solid #fdd835;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #ccc;
+            background-color: #1c1c1c;
+            color: #fdd835;
+        }
+        pre {
+            background-color: #f4f4f4;
+            margin: 10px;
+            padding: 10px;
+            border: 1.5px solid black;
+            border-radius: 20px;
+            position: relative;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        pre button.copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #fdd835;
+            color: #1c1c1c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 5px;
+            z-index: 1000;
+            display: none;
+        }
+        .menu {
+            position: relative;
+        }
+        .menu button {
+            background-color: transparent;
+            color: #fdd835;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .menu button:hover {
+            background-color: #333;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #fdd835;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #444;
+        }
+        .menu:hover .dropdown-content {
+            display: block;
+        }
+        footer a {
+            color: #fdd835;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            color: #ffeb3b;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .dark-mode pre {
+            background-color: #1e1e1e;
+            border-color: #e0e0e0;
+        }
+        .dark-mode header {
+            background-color: #121212;
+            border-bottom-color: #ffeb3b;
+        }
+        .dark-mode .menu button {
+            color: #fdd835;
+        }
+        .dark-mode .dropdown-content {
+            background-color: #222;
+        }
+        .toggle-button {
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            background-color: white;
+            color: black;
+            width: 40px;
+            height: 40px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-space {
+            margin-left: 20px;
+        }
+    </style>
+    <!-- Favicon link -->
+    <link rel="icon" href="https://raw.githubusercontent.com/rajeshkannanoffl/rajeshkannanoffl/main/assets/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header with dropdown menu -->
+    <header>
+        <!-- Menu Icon (Hamburger Icon) -->
+        <div class="menu">
+            <button onclick="toggleMenu()">&#9776;</button>
+            <div class="dropdown-content">
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <h1>General Notes</h1>
+        <!-- Dark Mode Toggle Button -->
+        <button class="toggle-button" onclick="toggleMode()">&#9788;</button>
+    </header>
+
+    <!-- Section header for renaming files -->
+    <h4 class="header-space">Renaming a Single Word of a File in the Folder (UNIX/Linux)</h4>
+    <pre>
+find /folderpath/foldername -type f -name '*OLD_NAME*' -exec rename NEW_NAME OLD_NAME {} +
+        <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+    </pre>
+
+    <!-- Section header for changing system language to Japanese -->
+    <h4 class="header-space">Instructions to Change System Language to Japanese</h4>
+
+    <!-- Ordered list for the step-by-step instructions -->
+    <ol class="header-space">
+        <!-- Step 1: Search for Language Settings -->
+        <li>
+            <strong>Search for Language Settings:</strong>
+            <ul>
+                <li>
+                    <pre>
+In the <strong>Windows Search Box (<span>&#x2318; + S</span>)</strong>, search for <strong>Language</strong>.
+                    </pre>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Step 2: Open Language Settings -->
+        <li>
+            <strong>Open Language Settings:</strong>
+            <ul>
+                <li>
+                    <pre>
+From the search results, select <strong>Language settings</strong> under the <strong>Settings</strong> menu.
+                    </pre>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Step 3: Install Japanese Language -->
+        <li>
+            <strong>Install Japanese Language:</strong>
+            <ul>
+                <li>
+                    <pre>
+In the <strong>Preferred Languages</strong> section, click on <strong>Add a language</strong>.
+                    </pre>
+                </li>
+                <li>
+                    <pre>
+Search for <strong>Japanese</strong> and follow the prompts to install it.
+                    </pre>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Step 4: Access Administrative Language Settings -->
+        <li>
+            <strong>Access Administrative Language Settings:</strong>
+            <ul>
+                <li>
+                    <pre>
+In the same <strong>Language settings</strong> menu, navigate to <strong>Related settings</strong>.
+                    </pre>
+                </li>
+                <li>
+                    <pre>
+Click on <strong>Administrative language settings</strong>.
+                    </pre>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Step 5: Change System Locale -->
+        <li>
+            <strong>Change System Locale:</strong>
+            <ul>
+                <li>
+                    <pre>
+In Administrative, under the <strong>Language for non-Unicode programs</strong> section, click on <strong>Change system locale</strong>.
+                    </pre>
+                </li>
+                <li>
+                    <pre>
+From the dropdown menu, select <strong>Japanese (Japan)</strong>.
+                    </pre>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Step 6: Restart Your PC -->
+        <li>
+            <strong>Restart Your PC:</strong>
+            <ul>
+                <li>
+                    <pre>
+Confirm the changes and restart your computer for the changes to take effect.
+                    </pre>
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 Rajesh Kannan M | 
+        <a href="https://twitter.com/rajeshkannanoffl" target="_blank">Twitter</a> | 
+        <a href="https://github.com/rajeshkannanoffl" target="_blank">GitHub</a> | 
+        <a href="https://linkedin.com/in/rajeshkannanoffl" target="_blank">LinkedIn</a>
+    </footer>
+
+    <!-- Notification banner for copy action -->
+    <div class="copy-notification" id="copyNotification">Text Copied!</div>
+
+    <!-- JavaScript to toggle menu and dark mode -->
+    <script>
+        function toggleMenu() {
+            var dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.classList.toggle('show');
+        }
+
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function copyToClipboard(button) {
+            var preElement = button.parentNode;
+            var text = preElement.innerText;
+            
+            navigator.clipboard.writeText(text)
+                .then(function() {
+                    console.log('Text copied to clipboard');
+                    showCopyNotification();
+                })
+                .catch(function(err) {
+                    console.error('Failed to copy text: ', err);
+                });
+        }
+
+        function showCopyNotification() {
+            var notification = document.getElementById('copyNotification');
+            notification.style.display = 'block';
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 2000); // Hide after 2 seconds
+        }
+    </script>
+</body>
+</html>

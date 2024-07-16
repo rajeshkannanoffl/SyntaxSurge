@@ -1,0 +1,21 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        }
+    ],
+    "settings": {
+        "editor.tabSize": 4,
+        "editor.wordWrap": "on",
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+        "editor.minimap.enabled": true,
+        "workbench.colorTheme": "Default Dark+",
+        "workbench.iconTheme": "vscode-icons",
+        "editor.formatOnSave": true,
+        "html.format.enable": true
+    },
+    "extensions": {
+        "recommendations": []
+    }
+}
