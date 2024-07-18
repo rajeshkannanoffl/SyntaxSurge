@@ -131,12 +131,13 @@ user_input () {
     echo -e "#"
     echo -e "# ${YELLOW}Example: If path is C:\Path, then input should be /c/Path${NC}"
     echo -e "#"
-    echo -en "# ${BLUE}Enter the source directory: ${NC}"
+    echo -en "# ${GREEN}Enter the source directory: ${NC}"
     read -r SOURCE_DIR
 
     # Prompt user for the destination directory
-    echo -en "# ${BLUE}Enter the destination directory: ${NC}"
+    echo -en "# ${PINK}Enter the destination directory: ${NC}"
     read -r DESTINATION_DIR
+    echo -e "#"
 
     # Check if source directory exists
     if [ ! -d "$SOURCE_DIR" ]; then
@@ -149,10 +150,10 @@ user_input () {
 
     # Check if destination directory exists, create if it doesn't
     if [ ! -d "$DESTINATION_DIR" ]; then
-        echo -e "#"
         echo -e "# ${RED}Destination directory does not exist.${NC}"
         echo -e "#"
-        echo -e "# ${YELLOW}Creating: $DESTINATION_DIR${NC}"
+        echo -e "# ${YELLOW}Creating Destination Directory: $DESTINATION_DIR${NC}"
+        echo -e "#"
         mkdir -p "$DESTINATION_DIR"
     fi
 }
@@ -163,6 +164,39 @@ user_input () {
 
 # Copy contents from source to destination
 copy_contents() {
+
+    # Calculate the size of the source folder in bytes
+    total_size=$(du -sb "$SOURCE_DIR" | cut -f1)
+
+    # Define an average copy speed in bytes per second (e.g., 50 MB/s)
+    avg_copy_speed=$((10 * 1024 * 1024))
+
+    # Estimate the time required to copy (in seconds)
+    est_time=$((total_size / avg_copy_speed))
+
+    # Convert estimated time to minutes and seconds
+    est_minutes=$((est_time / 60))
+    est_seconds=$((est_time % 60))
+
+    # Display the estimated time
+    echo -e "# ${YELLOW}Estimated time to copy: ${est_minutes}m ${est_seconds}s${NC}"
+
+    # Confirm the process
+    echo -e "#"
+    echo -en "# ${GREEN}Do you want to continue this process? [y/n]: ${NC}"
+    read -t 10 -r user_input  # Wait for 10 seconds for user input
+
+    # Check user's input
+    if [[ ! "$user_input" =~ ^[Yy]$|^yes$|^YES$ ]]; then
+        echo "#"
+        echo -e "# ${RED}Process execution aborted by user. (Retry & Use: y/Y/yes/YES)${NC}"
+        echo -e "#"
+        echo -e "# ${YELLOW}End of the Process!!!. Welcome again!!!.${NC}"
+        sleep 3
+        exit 1
+    fi
+
+    echo "#"
     
     # Get total number of files and directories to copy
     total_files=$(find "$SOURCE_DIR" -type f | wc -l)
@@ -181,7 +215,22 @@ copy_contents() {
         exit 1
     fi
 
+    # Display the list of directories to be copied
+    echo -e "# ${GREEN}List of Directories to be copied:${NC}"
+    for dir in "${total_dirs}"; do
+        echo -e "# $dir"
+    done
+
+    # Display the list of files to be copied
+    echo -e "#"
+    echo -e "# ${PINK}List of Files to be copied:${NC}"
+    for file in "${total_files}"; do
+        echo -e "# $file"
+    done
+
     copied_items=0
+
+    echo "#"
 
     # Copy files and directories with progress indicator
     for item in "$SOURCE_DIR"/*; do
@@ -192,38 +241,33 @@ copy_contents() {
         progress=$((copied_items * 100 / total_items))
         
         # Display progress bar with colored dots
-        echo -ne "# Progress: $progress% ["
+        echo -ne "# Task Status: $progress% ["
         
-        # Calculate number of dots and underscores for progress bar
+        # Calculate number of dots and spaces for progress bar
         num_dots=$((progress * 50 / 100))
-        num_underscores=$((50 - num_dots))
+        num_spaces=$((50 - num_dots))
         
         # Print dots
         for ((i = 0; i < num_dots; i++)); do
             echo -n "*"
         done
         
-        # Print underscores
-        for ((i = 0; i < num_underscores; i++)); do
-            echo -n "_"
+        # Print spaces
+        for ((i = 0; i < num_spaces; i++)); do
+            echo -n " "
         done
         
-        echo -ne "]\r"
-        
-        # Optional: Add a small delay to see the progress
-        sleep 0.1
+        echo -ne "\r"
     done
 
     # Ensure progress bar reaches 100% at the end
-    echo -ne "# Progress: 100% ["
+    echo -ne "# 100% ["
     for ((i = 0; i < 50; i++)); do
         echo -n "*"
     done
-    echo -ne "]\n"
-
-    echo -e "Copy completed!"
-
+    echo -ne "] Completed\n"
 }
+
 
 
 # Verify the copy operation
