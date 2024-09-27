@@ -4,336 +4,993 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>General Notes || Rajesh Kannan M</title>
-    <!-- Link to Google Fonts for custom font style -->
+    <title> Notes || Rajesh Kannan M</title>
+
+    <!-- Google Fonts and Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
-    <style>
-        /* CSS styles for the body, pre, header, dropdown, footer, and Batman-themed colors */
-        body {
-            font-family: 'Open Sans', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.5s, color 0.5s;
-        }
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #1c1c1c;
-            padding: 10px 20px;
-            color: #fdd835;
-            border-bottom: 2px solid #fdd835;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #ccc;
-            background-color: #1c1c1c;
-            color: #fdd835;
-        }
-
-        pre {
-            background-color: #f4f4f4;
-            margin: 10px;
-            padding: 10px;
-            border: 1.5px solid black;
-            border-radius: 20px;
-            position: relative;
-            white-space: pre-wrap;
-            overflow-x: auto;
-        }
-
-        pre button.copy-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 5px 10px;
-            background-color: #fdd835;
-            color: #1c1c1c;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .copy-notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            border-radius: 5px;
-            z-index: 1000;
-            display: none;
-        }
-
-        .menu {
-            position: relative;
-        }
-
-        .menu button {
-            background-color: transparent;
-            color: #fdd835;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 24px;
-        }
-
-        .menu button:hover {
-            background-color: #333;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: #fdd835;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #444;
-        }
-
-        .menu:hover .dropdown-content {
-            display: block;
-        }
-
-        footer a {
-            color: #fdd835;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            color: #ffeb3b;
-        }
-
-        .dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-
-        .dark-mode pre {
-            background-color: #1e1e1e;
-            border-color: #e0e0e0;
-        }
-
-        .dark-mode header {
-            background-color: #121212;
-            border-bottom-color: #ffeb3b;
-        }
-
-        .dark-mode .menu button {
-            color: #fdd835;
-        }
-
-        .dark-mode .dropdown-content {
-            background-color: #222;
-        }
-
-        .toggle-button {
-            cursor: pointer;
-            border: none;
-            border-radius: 50%;
-            background-color: white;
-            color: black;
-            width: 40px;
-            height: 40px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header-space {
-            margin-left: 20px;
-        }
-    </style>
-    <!-- Favicon link -->
+    <!-- Favicon -->
     <link rel="icon"
         href="https://raw.githubusercontent.com/rajeshkannanoffl/rajeshkannanoffl/main/assets/icons/favicon.ico"
         type="image/x-icon">
+
+    <!-- Internal CSS Styles -->
+    <style>
+        :root {
+            /* General text color */
+            --text-color: #ffffff;
+
+            /* Primary color used throughout the design */
+            --primary-color: #004e92;
+
+            /* Secondary color used in gradients and accents */
+            --secondary-color: #000428;
+
+            /* Gradient from primary to secondary color (left direction) */
+            --gradient-left: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+
+            /* Webkit-specific gradient for compatibility (left direction) */
+            --gradient-left-web: -webkit-linear-gradient(to left, var(--primary-color), var(--secondary-color));
+
+            /* Gradient from primary to secondary color (right direction) */
+            --gradient-right: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+
+            /* Webkit-specific gradient for compatibility (right direction) */
+            --gradient-right-web: -webkit-linear-gradient(to right, var(--primary-color), var(--secondary-color));
+
+            /* Gradient for dark mode background from dark primary to dark secondary (left direction) */
+            --dark-gradient-left: linear-gradient(to left, var(--dark-bg-color), var(--dark-secondary-bg));
+
+            /* Webkit-specific gradient for dark mode (left direction) */
+            --dark-gradient-left-web: -webkit-linear-gradient(to left, var(--dark-bg-color), var(--dark-secondary-bg));
+
+            /* Gradient for dark mode background from dark primary to dark secondary (right direction) */
+            --dark-gradient-right: linear-gradient(to right, var(--dark-bg-color), var(--dark-secondary-bg));
+
+            /* Webkit-specific gradient for dark mode (right direction) */
+            --dark-gradient-right-web: -webkit-linear-gradient(to right, var(--dark-bg-color), var(--dark-secondary-bg));
+
+            /* Primary background color for dark mode */
+            --dark-bg-color: #000000;
+
+            /* Secondary background color for dark mode */
+            --dark-secondary-bg: #2d2d2d;
+
+            /* Text color used in dark mode */
+            --dark-text-color: #f1c40f;
+
+            /* Default border color used throughout the design */
+            --border-color: var(--primary-color);
+
+            /* Highlight color for interactive elements (e.g., hover states) */
+            --highlight-color: #ff073a;
+
+            /* Transition duration and easing for smooth animations */
+            --transition-duration: 0.8s ease-out;
+
+            /* Default border-radius applied to elements for rounded corners */
+            --border-radius: 10px;
+        }
+
+
+        /* General body styles */
+        body {
+            font-family: 'Calibri', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--text-color);
+            /* White background */
+            color: var(--dark-bg-color);
+            /* Black text color */
+            transition: background-color var(--transition-duration);
+            /* Smooth transition for background color changes */
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            /* Align items to the left and right */
+            align-items: center;
+            /* Center items vertically */
+            background: var(--secondary-color);
+            /* Dark blue gradient */
+            background: var(--gradient-left-web);
+            /* For Safari */
+            background: var(--gradient-left);
+            /* Gradient from blue to dark blue */
+            padding: var(--border-radius) 20px;
+            /* Spacing around header content */
+            color: var(--text-color);
+            /* White text color */
+            border-bottom: 3px solid var(--text-color);
+            /* White border at the bottom */
+            box-shadow: 0 1px 3px #0000004d;
+            /* Subtle shadow under the header */
+            transition: background-color var(--transition-duration);
+            /* Smooth transition for background color */
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            /* Center text */
+            padding: 20px;
+            /* Spacing inside the footer */
+            border-top: 3px solid var(--text-color);
+            /* White border at the top */
+            box-shadow: 0 1px 3px #0000004d;
+            /* Subtle shadow under the header */
+            background: var(--gradient-right-web);
+            /* For Safari */
+            background: var(--gradient-right);
+            /* Gradient from blue to dark blue */
+            color: var(--text-color);
+            /* White text color */
+        }
+
+        /* Footer link styles */
+        footer a {
+            color: var(--text-color);
+            /* White text color */
+            text-decoration: none;
+            /* No underline */
+            margin: 0 15px;
+            /* Spacing between links */
+        }
+
+        /* Footer link hover effect */
+        footer a:hover {
+            color: var(--highlight-color);
+            /* Change to red on hover */
+        }
+
+        /* Content box styles */
+        .contentbox {
+            background-color: var(--text-color);
+            /* White background */
+            width: 1080px;
+            /* Fixed width */
+            border: 1.5px solid var(--primary-color);
+            /* Blue border */
+            padding: var(--border-radius);
+            /* Internal padding */
+            margin: var(--border-radius) auto;
+            /* Centered with margin */
+            border-radius: 8px;
+            /* Rounded corners */
+            box-shadow: #004e9433;
+            /* Subtle blue shadow */
+            position: relative;
+            /* Position for child elements */
+            transition: background-color var(--transition-duration);
+            /* Smooth transition for background color */
+        }
+
+        /* Common text size */
+        .fontsize {
+            font-size: 12px;
+            /* Small text size */
+            line-height: 1.5;
+            /* Line height for readability */
+        }
+
+        /* Preformatted text (code block) styles */
+        pre {
+            background-color: #dcdcdc;
+            /* Light gray background */
+            margin: 15px;
+            /* Spacing around the pre block */
+            padding: 8px;
+            /* Internal padding */
+            border: 1px solid var(--primary-color);
+            /* Blue border */
+            border-radius: var(--border-radius);
+            /* Rounded corners */
+            position: relative;
+            /* Position for child elements */
+            white-space: pre-wrap;
+            /* Preserve whitespace and wrap text */
+            overflow-x: auto;
+            /* Enable horizontal scroll for long lines */
+            transition: background-color var(--transition-duration);
+            /* Smooth transition for background color */
+        }
+
+        /* Button inside preformatted text (copy button) */
+        .copy-button {
+            position: absolute;
+            /* Position relative to pre block */
+            top: var(--border-radius);
+            /* Position from the top */
+            right: 5px;
+            /* Position from the right */
+            padding: 5px var(--border-radius);
+            /* Internal padding */
+            background-color: transparent;
+            /* Transparent background */
+            color: var(--dark-bg-color);
+            /* Black text color */
+            border: none;
+            /* No border */
+            border-radius: 5px;
+            /* Rounded corners */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            transition: background-color color 0.1s;
+            /* Quick transition for color */
+        }
+
+        /* Copy button hover effect */
+        .copy-button:hover {
+            background-color: transparent;
+            /* Transparent on hover */
+            color: var(--highlight-color);
+            /* Red text color on hover */
+        }
+
+        /* Notification for copy action */
+        .copy-notification {
+            position: fixed;
+            /* Fixed at the bottom */
+            bottom: 30px;
+            /* Distance from the bottom */
+            left: 50%;
+            /* Center horizontally */
+            transform: translateX(-50%);
+            /* Adjust to center */
+            padding: var(--border-radius) 20px;
+            /* Internal padding */
+            background-color: #000000cc;
+            /* Semi-transparent black */
+            color: var(--text-color);
+            /* White text color */
+            border-radius: 100px;
+            /* Rounded appearance */
+            z-index: 1000;
+            /* High stacking order */
+            display: none;
+            /* Hidden by default */
+        }
+
+        /* Menu dropdown styles */
+        .menu {
+            position: relative;
+            /* Position relative for dropdown */
+        }
+
+        /* Menu button styles */
+        .menu button {
+            background-color: transparent;
+            /* Transparent background */
+            color: var(--text-color);
+            /* White text color */
+            border: none;
+            /* No border */
+            padding: var(--border-radius) var(--border-radius);
+            /* Internal padding */
+            border-radius: var(--border-radius);
+            /* Rounded corners */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            font-size: var(--border-radius);
+            /* Small font size */
+            transition: background-color var(--transition-duration);
+            /* Smooth transition for background color */
+        }
+
+        /* Menu button hover effect */
+        .menu button:hover {
+            background-color: transparent;
+            /* Transparent on hover */
+        }
+
+        /* Dropdown content styles */
+        .dropdown-content {
+            display: none;
+            /* Hidden by default */
+            position: absolute;
+            /* Absolute positioning */
+            background-color: var(--primary-color);
+            /* Blue background */
+            min-width: 150px;
+            /* Minimum width */
+            box-shadow: 0px 8px 16px 0px #00000033;
+            /* Shadow for dropdown */
+            z-index: 1;
+            /* Above other elements */
+            border-radius: var(--border-radius);
+            /* Rounded corners */
+        }
+
+        /* Dropdown link styles */
+        .dropdown-content a {
+            color: var(--text-color);
+            /* White text color */
+            padding: 12px 16px;
+            /* Internal padding */
+            text-decoration: none;
+            /* No underline */
+            display: grid;
+            /* Display as grid */
+        }
+
+        /* Dropdown link hover effect */
+        .dropdown-content a:hover {
+            background-color: var(--text-color);
+            /* White background on hover */
+            color: var(--primary-color);
+            /* Blue text on hover */
+            border-radius: var(--border-radius);
+            /* Rounded corners */
+        }
+
+        /* Show dropdown content on hover */
+        .menu:hover .dropdown-content {
+            display: block;
+            /* Show on hover */
+        }
+
+        /* Pin button styles */
+        .pin-button {
+            position: absolute;
+            /* Absolute positioning */
+            top: var(--border-radius);
+            /* Position from the top */
+            right: var(--border-radius);
+            /* Position from the right */
+            background-color: transparent;
+            /* Transparent background */
+            color: var(--dark-bg-color);
+            /* Black text color */
+            border: none;
+            /* No border */
+            border-radius: 5px;
+            /* Rounded corners */
+            padding: 5px var(--border-radius);
+            /* Internal padding */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            transition: background-color 0.3s;
+            /* Smooth transition for background color */
+        }
+
+        /* Pin button hover effect */
+        .pin-button:hover {
+            background-color: var(--highlight-color);
+            /* Red background on hover */
+        }
+
+        /* Pinned element styles */
+        .pinned {
+            position: fixed;
+            /* Fixed positioning */
+            z-index: 1000;
+            /* High stacking order */
+            width: 1080px;
+            /* Fixed width */
+            /* Or any preferred width */
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: var(--dark-bg-color);
+            /* Black background */
+            color: var(--text-color);
+            /* White text color */
+        }
+
+        /* Dark mode header styles */
+        .dark-mode header {
+            background: var(--dark-bg-color);
+            /* Black background */
+            background: var(--dark-gradient-right-web);
+            /* For Safari */
+            background: var(--dark-gradient-right);
+            /* Gradient from black to dark gray */
+            color: var(--dark-text-color);
+            /* Yellow text color */
+            border-bottom: 3px solid var(--dark-text-color);
+            /* Yellow border */
+            box-shadow: 0 1px 3px #000000b3;
+            /* Subtle black shadow */
+            transition: background-color var(--transition-duration);
+            /* Smooth transition for background color */
+        }
+
+        /* Dark mode footer styles */
+        .dark-mode footer {
+            border-top: 3px solid var(--dark-text-color);
+            /* Yellow border */
+            background: var(--dark-gradient-left-web);
+            /* For Safari */
+            background: var(--dark-gradient-left);
+            /* Gradient from black to dark gray */
+        }
+
+        /* Dark mode footer link styles */
+        .dark-mode footer a {
+            color: var(--dark-text-color);
+            /* Yellow text color */
+        }
+
+        /* Dark mode footer link hover effect */
+        .dark-mode footer a:hover {
+            color: var(--text-color);
+            /* White text color on hover */
+        }
+
+        /* Dark mode content box styles */
+        .dark-mode .contentbox {
+            background-color: #202020;
+            /* Dark gray background */
+            color: var(--text-color);
+            /* White text color */
+            border-color: var(--dark-text-color);
+            /* Yellow border */
+        }
+
+        /* Dark mode preformatted text (code block) styles */
+        .dark-mode pre {
+            background-color: #333;
+            /* Dark background */
+            border-color: var(--dark-text-color);
+            /* Yellow border */
+        }
+
+        /* Dark mode dropdown content styles */
+        .dark-mode .dropdown-content {
+            background-color: #333;
+            /* Dark background */
+        }
+
+        /* Dark mode dropdown link styles */
+        .dark-mode .dropdown-content a {
+            color: var(--dark-text-color);
+            /* Yellow text color */
+        }
+
+        /* Dark mode dropdown link hover effect */
+        .dark-mode .dropdown-content a:hover {
+            background-color: transparent;
+            /* Transparent background on hover */
+            color: var(--text-color);
+            /* White text color on hover */
+        }
+
+        /* Dark mode copy button styles */
+        .dark-mode .copy-button {
+            color: var(--dark-text-color);
+            /* Yellow text color */
+        }
+
+        /* Dark mode copy button hover effect */
+        .dark-mode .copy-button:hover {
+            color: var(--text-color);
+            /* White text color on hover */
+        }
+
+        /* Dark mode copy notification styles */
+        .dark-mode .copy-notification {
+            background-color: #ffffffcc;
+            /* Semi-transparent white */
+            color: var(--dark-bg-color);
+            /* Black text color */
+        }
+
+        /* Dark mode menu button styles */
+        .dark-mode .menu button {
+            color: var(--dark-text-color);
+            /* Yellow text color */
+        }
+
+        /* Dark mode pin button styles */
+        .dark-mode .pin-button {
+            color: var(--dark-text-color);
+            /* Yellow text color */
+        }
+
+        /* Dark mode pin button hover effect */
+        .dark-mode .pin-button:hover {
+            background-color: var(--highlight-color);
+            /* Red background on hover */
+        }
+
+        /* Toggle button styles */
+        .toggle-button {
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            border: none;
+            /* No border */
+            border-radius: 50%;
+            /* Fully rounded */
+            background-color: var(--text-color);
+            /* White background */
+            color: rgb(0, 0, 0);
+            /* Black text color */
+            width: 40px;
+            /* Fixed width */
+            height: 40px;
+            /* Fixed height */
+            font-size: 14px;
+            /* Text size */
+            display: flex;
+            /* Flexbox for centering */
+            align-items: center;
+            /* Center items vertically */
+            justify-content: center;
+            /* Center items horizontally */
+            transition: background-color 0.3s;
+            /* Smooth transition for background color */
+        }
+
+        /* Additional spacing for header elements */
+        .header-space {
+            margin-left: 20px;
+            /* Left margin */
+        }
+
+        /* Large button styles */
+        .large-button {
+            padding: 12px 24px;
+            /* Internal padding */
+            font-size: 16px;
+            /* Larger text size */
+        }
+
+        /* Small button styles */
+        .small-button {
+            padding: 4px;
+            /* Internal padding */
+            font-size: 5px;
+            /* Very small text size */
+        }
+
+        /* Small font size for header */
+        .header-small-fontsize {
+            font-size: 20px;
+            /* Smaller text size */
+            line-height: 1;
+            /* Compact line height */
+        }
+
+        /* Small icon size for footer */
+        .footer-small-iconsize {
+            font-size: 12px;
+            /* Small icon size */
+            line-height: 1.5;
+            /* Line height for icons */
+        }
+
+        /* Spacing classes */
+        .spacing {
+            margin-bottom: 20px;
+            /* Larger bottom margin */
+        }
+
+        .small-spacing {
+            margin-bottom: var(--border-radius);
+            /* Smaller bottom margin */
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Password Protection -->
+    <!--    <div id="passwordCheck" style="text-align: center;">
+        <input type="password" placeholder="enter the password..." id="onlypass">
+        <button onclick="protectPasscode()">CHECK</button>
+    </div> -->
+    <!-- Hidden Content (initially hidden and revealed on correct password) -->
+    <!-- <div id="protectedContent" style="display: none;"> -->
     <!-- Header with dropdown menu -->
     <header>
         <!-- Menu Icon (Hamburger Icon) -->
         <div class="menu">
-            <button onclick="toggleMenu()">&#9776;</button>
+            <button><i class="material-icons">menu_open</i></button>
             <div class="dropdown-content">
                 <a href="#about">About</a>
                 <a href="#features">Features</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
-        <h1>General Notes</h1>
+        <h1 style="text-align: center;">
+            General Notes
+            <div class="header-small-fontsize" style="text-align: center;">
+                Explore Experience Execute
+            </div>
+        </h1>
+
         <!-- Dark Mode Toggle Button -->
-        <button class="toggle-button" onclick="toggleMode()">&#9788;</button>
+        <button class="toggle-button" onclick="toggleMode()"><i class="material-icons">dark_mode</i></button>
     </header>
 
+    <div class="contentbox">
+        <!-- Section header for creating an SSH key for Git -->
+        <button class="pin-button" onclick="togglePin(this)">⛶</button>
+        <h2 class="header-space">Instructions to Create and Configure SSH Key (Github/Gitlab) </h2>
+
+        <!-- Ordered list for the step-by-step instructions -->
+        <ol class="header-space">
+            <!-- Step 1: Open Terminal -->
+            <li>
+                <strong>Open Terminal:</strong>
+                <ul>
+                    <li>
+                        Open the <strong>GitBash</strong> application on your computer.
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Step 2: Generate a New SSH Key -->
+            <li>
+                <strong>Generate a New SSH Key:</strong>
+                <ul>
+                    <li>
+                        To generate a new SSH key, enter the following command:
+                        <pre>
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com" <button class="copy-button small-button" onclick="copyToClipboard(this)"><i class="material-icons">content_copy</i></button>
+                            </pre>
+                    </li>
+                    <li>
+                        When prompted, press <strong>Enter</strong> to save the key to the default location
+                        (<strong>/Users/your_username/.ssh/id_rsa</strong>).
+                    </li>
+                    <li>
+                        You can set a passphrase for added security or press <strong>Enter</strong> to skip this step.
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Step 3: Copy SSH Key to Clipboard -->
+            <li>
+                <strong>Copy SSH Key to Clipboard:</strong>
+                <ul>
+                    <li>
+                        <pre>
+cat ~/.ssh/id_rsa.pub <button class="copy-button small-button" onclick="copyToClipboard(this)"><i class="material-icons">content_copy</i></button>
+                        </pre>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Step 4: Add SSH Key to Git Account -->
+            <li>
+                <strong>Add SSH Key to GitHub Account:</strong>
+                <ul>
+                    <li>
+                        Navigate to <strong>Git Site</strong>, click on your profile, and select
+                        <strong>Preferences</strong>.
+                    </li>
+                    <li>
+                        In the left sidebar, click <strong>SSH keys</strong>, then click <strong>Add new key</strong>.
+                    </li>
+                    <li>
+                        Paste your SSH key into the <strong>Key</strong> field, give it a <strong>Title</strong>, and
+                        click <strong>Add key</strong>.
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
     <!-- Section header for renaming files -->
-    <h4 class="header-space">Renaming a Single Word of a File in the Folder (UNIX/Linux)</h4>
-    <pre>
-find /folderpath/foldername -type f -name '*OLD_NAME*' -exec rename NEW_NAME OLD_NAME {} +
-        <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+    <div class="contentbox">
+        <button class="pin-button" onclick="togglePin(this)">⛶</button>
+        <h2 class="header-space">Renaming a Single Word of All the Files in the Folder (UNIX/Linux)</h2>
+
+        <pre>
+find /folderpath/foldername -type f -name '*OLD_NAME*' -exec rename OLD_NAME NEW_NAME {} + 
+<button class="copy-button small-button" onclick="copyToClipboard(this)"><i class="material-icons">content_copy</i></button>
     </pre>
+        <h4 class="header-space">Description of the Command:</h4>
+        <div class="fontsize">
+            <p>This command is used to rename a specific word or pattern in the names of all files within a specified
+                directory in a UNIX/Linux environment. It utilizes the <code>find</code> command to locate the files and
+                the <code>rename</code> command to modify their names.</p>
+            <ol>
+                <li><strong>find /folderpath/foldername</strong>: Initiates the <span class="highlight">find</span>
+                    command, which searches for files and directories within the specified directory. Replace
+                    <code>/folderpath/foldername</code> with the actual path where you want to search.
+                </li>
+                <li><strong>-type f</strong>: Restricts the search to files only, excluding directories.</li>
+                <li><strong>-name '*OLD_NAME*'</strong>: Specifies the pattern of the file names to search for, using
+                    wildcard characters (<code>*</code>) to match any files containing <span
+                        class="highlight">OLD_NAME</span> in their names. Replace <code>OLD_NAME</code> with the
+                    specific word or pattern you want to rename.</li>
+                <li><strong>-exec rename OLD_NAME NEW_NAME {} +</strong>: Executes the <span
+                        class="highlight">rename</span> command on each file found by <code>find</code>:
+                    <ol>
+                        <li><strong>rename</strong>: The command used to rename files.</li>
+                        <li><strong>OLD_NAME</strong>: The existing word or pattern in the file names to be replaced.
+                        </li>
+                        <li><strong>NEW_NAME</strong>: The new word or pattern to replace <code>OLD_NAME</code> in the
+                            file names.</li>
+                        <li><strong>{}</strong>: A placeholder representing each file found by the <span
+                                class="highlight">find</span> command.</li>
+                        <li><strong>+</strong>: Executes the <span class="highlight">rename</span> command for all
+                            matching files at once (in batches), improving efficiency.</li>
+                    </ol>
+                </li>
+            </ol>
+            <p>By using this command, you can efficiently rename a specific word in multiple files at once, saving time
+                and effort compared to manually renaming each file.</p>
+        </div>
+    </div>
+    </div>
 
     <!-- Section header to develop python files into executables -->
-    <h4 class="header-space">Develop an Executable File (.exe) using UNIX/Linux Shell</h4>
-    <pre>
-pyinstaller --onefile --noconsole --distpath "C:/PATH/build" --clean FILE_NAME.py
-        <button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+    <div class="contentbox">
+        <button class="pin-button" onclick="togglePin(this)">⛶</button>
+        <h2 class="header-space">Develop an Executable File (.exe) using UNIX/Linux Shell</h2>
+        <pre>
+pyinstaller --onefile --noconsole --distpath "C:/PATH/build/" --workpath "C:/PATH/build/" --specpath "C:/PATH/build/" main.py
+<button class="copy-button small-button" onclick="copyToClipboard(this)"><i class="material-icons">content_copy</i></button>
     </pre>
+        <h4 class="header-space">Description of the Command:</h4>
+        <div class="fontsize">
+            <p>This section provides a guide on how to convert a Python script into a standalone executable file using
+                the <code>PyInstaller</code> tool in a UNIX/Linux environment. This can be useful for distributing
+                Python applications to users who do not have Python installed on their systems.</p>
+            <ol>
+                <li><strong>pyinstaller</strong>: This is the command used to initiate the conversion of the Python
+                    script into an executable file.</li>
+                <li><strong>--onefile</strong>: This option packages everything into a single executable file, which
+                    simplifies distribution.</li>
+                <li><strong>--noconsole</strong>: This option suppresses the console window that would normally open
+                    when running the executable, making it ideal for GUI applications.</li>
+                <li><strong>--distpath "C:/PATH/build/"</strong>: Specifies the output directory for the final
+                    executable file. Replace <code>"C:/PATH/build/"</code> with your desired path.</li>
+                <li><strong>--workpath "C:/PATH/build/"</strong>: Specifies the working directory where PyInstaller
+                    stores its temporary files. Again, replace <code>"C:/PATH/build/"</code> with your desired path.
+                </li>
+                <li><strong>--specpath "C:/PATH/build/"</strong>: Sets the path for the <code>.spec</code> file, which
+                    PyInstaller uses to remember the configuration for the build. Replace <code>"C:/PATH/build/"</code>
+                    accordingly.</li>
+                <li><strong>main.py</strong>: This is the name of the Python script you want to convert. Replace
+                    <code>main.py</code> with your actual script file.
+                </li>
+            </ol>
+            <p>After setting the correct paths and ensuring <code>PyInstaller</code> is installed, run this command in
+                your shell to generate the executable file.</p>
+        </div>
+    </div>
 
-    <!-- Section header for changing system language to Japanese -->
-    <h4 class="header-space">Instructions to Change System Language to Japanese</h4>
 
-    <!-- Ordered list for the step-by-step instructions -->
-    <ol class="header-space">
-        <!-- Step 1: Search for Language Settings -->
-        <li>
-            <strong>Search for Language Settings:</strong>
-            <ul>
-                <li>
-                    <pre>
+    <div class="contentbox">
+        <!-- Section header for changing system language to Japanese -->
+        <button class="pin-button" onclick="togglePin(this)">⛶</button>
+        <h2 class="header-space">Instructions to Change System Language to Japanese</h2>
+
+        <!-- Ordered list for the step-by-step instructions -->
+        <ol class="header-space">
+            <!-- Step 1: Search for Language Settings -->
+            <li>
+                <strong>Search for Language Settings:</strong>
+                <ul>
+                    <li>
+                        <pre>
 In the <strong>Windows Search Box (<span>&#x2318; + S</span>)</strong>, search for <strong>Language</strong>.
                     </pre>
-                </li>
-            </ul>
-        </li>
+                    </li>
+                </ul>
+            </li>
 
-        <!-- Step 2: Open Language Settings -->
-        <li>
-            <strong>Open Language Settings:</strong>
-            <ul>
-                <li>
-                    <pre>
+            <!-- Step 2: Open Language Settings -->
+            <li>
+                <strong>Open Language Settings:</strong>
+                <ul>
+                    <li>
+                        <pre>
 From the search results, select <strong>Language settings</strong> under the <strong>Settings</strong> menu.
                     </pre>
-                </li>
-            </ul>
-        </li>
+                    </li>
+                </ul>
+            </li>
 
-        <!-- Step 3: Install Japanese Language -->
-        <li>
-            <strong>Install Japanese Language:</strong>
-            <ul>
-                <li>
-                    <pre>
+            <!-- Step 3: Install Japanese Language -->
+            <li>
+                <strong>Install Japanese Language:</strong>
+                <ul>
+                    <li>
+                        <pre>
 In the <strong>Preferred Languages</strong> section, click on <strong>Add a language</strong>.
                     </pre>
-                </li>
-                <li>
-                    <pre>
+                    </li>
+                    <li>
+                        <pre>
 Search for <strong>Japanese</strong> and follow the prompts to install it.
                     </pre>
-                </li>
-            </ul>
-        </li>
+                    </li>
+                </ul>
+            </li>
 
-        <!-- Step 4: Access Administrative Language Settings -->
-        <li>
-            <strong>Access Administrative Language Settings:</strong>
-            <ul>
-                <li>
-                    <pre>
+            <!-- Step 4: Access Administrative Language Settings -->
+            <li>
+                <strong>Access Administrative Language Settings:</strong>
+                <ul>
+                    <li>
+                        <pre>
 In the same <strong>Language settings</strong> menu, navigate to <strong>Related settings</strong>.
                     </pre>
-                </li>
-                <li>
-                    <pre>
+                    </li>
+                    <li>
+                        <pre>
 Click on <strong>Administrative language settings</strong>.
                     </pre>
-                </li>
-            </ul>
-        </li>
+                    </li>
+                </ul>
+            </li>
 
-        <!-- Step 5: Change System Locale -->
-        <li>
-            <strong>Change System Locale:</strong>
-            <ul>
-                <li>
-                    <pre>
+            <!-- Step 5: Change System Locale -->
+            <li>
+                <strong>Change System Locale:</strong>
+                <ul>
+                    <li>
+                        <pre>
 In Administrative, under the <strong>Language for non-Unicode programs</strong> section, click on <strong>Change system locale</strong>.
                     </pre>
-                </li>
-                <li>
-                    <pre>
+                    </li>
+                    <li>
+                        <pre>
 From the dropdown menu, select <strong>Japanese (Japan)</strong>.
                     </pre>
-                </li>
-            </ul>
-        </li>
+                    </li>
+                </ul>
+            </li>
 
-        <!-- Step 6: Restart Your PC -->
-        <li>
-            <strong>Restart Your PC:</strong>
-            <ul>
-                <li>
-                    <pre>
+            <!-- Step 6: Restart Your PC -->
+            <li>
+                <strong>Restart Your PC:</strong>
+                <ul>
+                    <li>
+                        <pre>
 Confirm the changes and restart your computer for the changes to take effect.
                     </pre>
-                </li>
-            </ul>
-        </li>
-    </ol>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
 
     <!-- Footer Section -->
     <footer>
-        &copy; 2024 Rajesh Kannan M |
-        <a href="https://twitter.com/rajeshkannanoffl" target="_blank">Twitter</a> |
+        <a><i class="material-icons footer-small-iconsize">copyright</i> 2024 Rajesh Kannan M</a> |
         <a href="https://github.com/rajeshkannanoffl" target="_blank">GitHub</a> |
-        <a href="https://linkedin.com/in/rajeshkannanoffl" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/rajeshkannanoffl" target="_blank">LinkedIn</a>
+        <img src="https://www.biz.nf/green/green_badge_b4.png" style="width:75px;height:30px;">
     </footer>
-
-    <!-- Notification banner for copy action -->
-    <div class="copy-notification" id="copyNotification">Text Copied!</div>
-
-    <!-- JavaScript to toggle menu and dark mode -->
+    <!-- JavaScript functionality -->
     <script>
-        function toggleMenu() {
-            var dropdownContent = document.querySelector('.dropdown-content');
-            dropdownContent.classList.toggle('show');
+        // Password protection logic
+        function protectPasscode() {
+            const pass = document.getElementById("onlypass").value;
+            const correctPassword = "1234"; // Replace this with your actual password
+            if (pass === correctPassword) {
+                document.getElementById("protectedContent").style.display = "block";
+                document.getElementById("passwordCheck").style.display = "none"; // Hide the password input section
+            } else {
+                alert("Invalid Password!");
+            }
         }
 
+        // Listen for "Enter" key press on the password input
+        document.getElementById("onlypass").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                protectPasscode();
+            }
+        });
+
+        // Toggle dark mode
         function toggleMode() {
-            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle("dark-mode");
         }
 
         function copyToClipboard(button) {
-            var preElement = button.parentNode;
-            var text = preElement.innerText;
+            // Get the parent <pre> element and retrieve only the text content without the button
+            const preElement = button.closest('pre');
+            const textNodes = Array.from(preElement.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
+            const textToCopy = textNodes.map(node => node.textContent).join('').trim();
 
-            navigator.clipboard.writeText(text)
-                .then(function () {
-                    console.log('Text copied to clipboard');
-                    showCopyNotification();
-                })
-                .catch(function (err) {
-                    console.error('Failed to copy text: ', err);
-                });
+            // Copy the text to clipboard
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Show a notification on successful copy
+                showCopyNotification('Copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
         }
 
-        function showCopyNotification() {
-            var notification = document.getElementById('copyNotification');
+        function showCopyNotification(message) {
+            // Create and display a notification element
+            const notification = document.createElement('div');
+            notification.className = 'copy-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
             notification.style.display = 'block';
-            setTimeout(function () {
-                notification.style.display = 'none';
-            }, 2000); // Hide after 2 seconds
+
+            // Remove the notification after a few seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        }
+
+        function togglePin(button) {
+            const contentbox = button.closest('.contentbox');
+            const isPinned = contentbox.classList.toggle('pinned');
+            button.textContent = isPinned ? '_' : '⛶';
+
+            if (isPinned) {
+                // Store the original position if not already stored
+                if (!contentbox.dataset.originalTop) {
+                    const rect = contentbox.getBoundingClientRect();
+                    contentbox.dataset.originalTop = rect.top + window.scrollY;
+                    contentbox.dataset.originalLeft = rect.left + window.scrollX;
+                }
+                contentbox.style.position = 'fixed';
+                contentbox.style.top = contentbox.dataset.originalTop + 'px';
+                contentbox.style.left = contentbox.dataset.originalLeft + 'px';
+                makeDraggable(contentbox);
+            } else {
+                // Restore original position and disable draggable
+                contentbox.style.position = '';
+                contentbox.style.top = '';
+                contentbox.style.left = '';
+                contentbox.removeAttribute('data-original-top');
+                contentbox.removeAttribute('data-original-left');
+                disableDraggable(contentbox); // Disable draggable functionality
+            }
+        }
+
+        function makeDraggable(element) {
+            let offsetX = 0, offsetY = 0, isDragging = false;
+
+            // Mouse down event to initiate dragging
+            const onMouseDown = (event) => {
+                isDragging = true;
+                offsetX = event.clientX - element.getBoundingClientRect().left;
+                offsetY = event.clientY - element.getBoundingClientRect().top;
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            };
+
+            // Mouse move event to drag the element
+            const onMouseMove = (event) => {
+                if (isDragging) {
+                    element.style.top = `${event.clientY - offsetY}px`;
+                    element.style.left = `${event.clientX - offsetX}px`;
+                }
+            };
+
+            // Mouse up event to stop dragging
+            const onMouseUp = () => {
+                isDragging = false;
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            };
+
+            // Attach the mouse down event
+            element.addEventListener('mousedown', onMouseDown);
+
+            // Save the event handlers in the element so they can be removed later
+            element._onMouseDown = onMouseDown;
+            element._onMouseMove = onMouseMove;
+            element._onMouseUp = onMouseUp;
+        }
+
+        function disableDraggable(element) {
+            // Remove the mouse down event listener to disable dragging
+            if (element._onMouseDown) {
+                element.removeEventListener('mousedown', element._onMouseDown);
+                document.removeEventListener('mousemove', element._onMouseMove);
+                document.removeEventListener('mouseup', element._onMouseUp);
+
+                // Clean up the references
+                delete element._onMouseDown;
+                delete element._onMouseMove;
+                delete element._onMouseUp;
+            }
         }
     </script>
 </body>
